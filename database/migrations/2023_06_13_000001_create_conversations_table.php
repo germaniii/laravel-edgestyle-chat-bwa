@@ -16,8 +16,8 @@ class CreateConversationsTable extends Migration
         Schema::create('conversations', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->integer('creator_id');
             $table->integer('channel_id');
+            $table->longText('messages');
             $table->dateTime('created_at');
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();

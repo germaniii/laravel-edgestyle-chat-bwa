@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
   {
     $this->call(UserSeeder::class);
     $this->call(ConversationSeeder::class);
+    $this->call(ParticipantsSeeder::class);
 
     // create an array of random unique dates in the format y-m-d
     $randomDates = [];
@@ -24,12 +25,6 @@ class DatabaseSeeder extends Seeder
       $date = Carbon::today()->subDays(rand(0, 31))->format('Y-m-d');
       if (!in_array($date, $randomDates))
         array_push($randomDates, $date);
-    }
-
-    foreach($randomDates as $date) {
-      Message::factory()->create([
-        'created_at' => $date
-      ]);
     }
   }
 }
